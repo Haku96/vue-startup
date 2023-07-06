@@ -1,12 +1,28 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
-
+import ElementPlus from 'element-plus';
+import '@/assets/style/reset.css';
+import 'element-plus/dist/index.css';
+import './mock';
 import App from './App.vue';
-import router from './router';
 
-const app = createApp(App);
+import { setupStore } from '@/store';
+import { setupRouter } from '@/router';
+import { registerGlobComp } from '@/components/registerGlobComp';
 
-app.use(createPinia());
-app.use(router);
+async function bootstrap() {
+  const app = createApp(App);
 
-app.mount('#app');
+  // 初始化 Pinia
+  setupStore(app);
+
+  // 初始化 vue-router
+  setupRouter(app);
+
+  // 全局组件注册
+  registerGlobComp(app);
+  app.use(ElementPlus);
+
+  app.mount('#app');
+}
+
+bootstrap();

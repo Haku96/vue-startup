@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AppView from '../App.vue';
+import HomeView from '../views/home/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: AppView
+      component: HomeView
     }
 
     /// lazy-loaded
@@ -18,5 +18,9 @@ const router = createRouter({
     // }
   ]
 });
+
+export function setupRouter(app) {
+  app.use(router);
+}
 
 export default router;

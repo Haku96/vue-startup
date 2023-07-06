@@ -1,13 +1,11 @@
 <template>
-  <router-view></router-view>
+  <div>text-component</div>
 </template>
 
 <script setup>
 import { defineOptions } from 'vue';
 
 defineOptions({
-  name: 'App'
+  name: 'Text'
 });
 </script>
-
-<style scoped></style>
