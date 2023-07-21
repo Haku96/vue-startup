@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import createRouterGuard from './router-guard';
 import HomeView from '../views/home/index.vue';
 
 const router = createRouter({
@@ -8,6 +9,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      component: HomeView,
+      redirect: '/'
     }
 
     /// lazy-loaded
@@ -18,6 +25,8 @@ const router = createRouter({
     // }
   ]
 });
+
+createRouterGuard(router);
 
 export function setupRouter(app) {
   app.use(router);

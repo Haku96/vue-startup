@@ -1,9 +1,188 @@
-/// display
-/// flex
-/// text
-/// font
-/// bg
-/// border
-/// radius
-/// margin，padding
+/* #region 盒模型 */
+.box-border {
+  box-sizing: border-box;
+}
+
+.box-content {
+  box-sizing: content-box;
+}
+
+@for $i from 1 through 10 {
+  .m-#{$i} {
+    margin: $i * $space;
+  }
+
+  .mt-#{$i} {
+    margin-top: $i * $space;
+  }
+
+  .mr-#{$i} {
+    margin-right: $i * $space;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: $i * $space;
+  }
+
+  .ml-#{$i} {
+    margin-left: $i * $space;
+  }
+
+  .my-#{$i} {
+    margin: $i * $space 0;
+  }
+
+  .mx-#{$i} {
+    margin: 0 $i * $space;
+  }
+
+  .p-#{$i} {
+    padding: $i * $space;
+  }
+
+  .pt-#{$i} {
+    padding-top: $i * $space;
+  }
+
+  .pr-#{$i} {
+    padding-right: $i * $space;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: $i * $space;
+  }
+
+  .pl-#{$i} {
+    padding-left: $i * $space;
+  }
+
+  .py-#{$i} {
+    padding: $i * $space 0;
+  }
+
+  .px-#{$i} {
+    padding: 0 $i * $space;
+  }
+}
+
+/* #endregion */
+
+/* #region 弹性布局 */
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+$flex-direction-map: (
+  flex-row: row,
+  flex-row-reverse: row-reverse,
+  flex-col: column,
+  flex-col-reverse: column-reverse
+);
+
+@each $key, $value in $flex-direction-map {
+  .#{$key} {
+    flex-direction: $value;
+  }
+}
+
+$flex-justify-map: (
+  justify-start: flex-start,
+  justify-end: flex-end,
+  justify-center: center,
+  justify-between: space-between,
+  justify-around: space-around,
+  justify-evenly: space-evenly,
+  justify-stretch: stretch
+);
+
+@each $key, $value in $flex-justify-map {
+  .#{$key} {
+    justify-content: $value;
+  }
+}
+
+$flex-items-map: (
+  items-start: flex-start,
+  items-end: flex-end,
+  items-center: center,
+  items-baseline: baseline,
+  items-stretch: stretch
+);
+
+@each $key, $value in $flex-items-map {
+  .#{$key} {
+    align-items: $value;
+  }
+}
+
+/* #endregion */
+
+/* #region 文字 */
+$text-align-map: (
+  text-left: left,
+  text-center: center,
+  text-right: right,
+  text-justify: justify
+);
+
+@each $key, $value in $text-align-map {
+  .#{$key} {
+    text-align: $value;
+  }
+}
+
+$text-size-map: (
+  text-xs: 12px,
+  text-sm: 14px,
+  text-base: 16px,
+  text-lg: 20px,
+  text-xl: 24px
+);
+
+@each $key, $value in $text-size-map {
+  .#{$key} {
+    font-size: $value;
+  }
+}
+
+$font-weight-map: (
+  font-thin: 200,
+  font-normal: 400,
+  font-medium: 500,
+  font-bold: 600,
+  font-extrabold: 800
+);
+
+@each $key, $value in $font-weight-map {
+  .#{$key} {
+    font-weight: $value;
+  }
+}
+/* #endregion */
+
+/* #region 边框 */
+$rounded-map: (
+  rounded-none: 0px,
+  rounded-sm: 2px,
+  rounded: 4px,
+  rounded-md: 6px,
+  rounded-lg: 8px
+);
+
+@each $key, $value in $rounded-map {
+  .#{$key} {
+    border-radius: $value;
+  }
+}
+/* #endregion */
+
 /// 需要命名的创建 5 类，和数据有关的创建 10 个
+/// 其它可根据设计稿自行添加，此处只编辑基本的，参数值可自行修改

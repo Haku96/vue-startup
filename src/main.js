@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
-import '@/assets/style/reset.css';
+import '@/assets/style/index.scss';
 import 'element-plus/dist/index.css';
 import './mock';
 import App from './App.vue';
